@@ -1,0 +1,136 @@
+/* UTILITIES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+/* NAVBAR STYLING STARTS */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(185, 185, 185);
+  color: rgb(0, 0, 0);
+}
+.nav-links a {
+  color: rgb(0, 0, 0);
+}
+/* NAVBAR MENU */
+.menu {
+  display: flex;
+  gap: 1em;
+  /* font-size: 18px; */
+}
+.menu li:hover {
+  background-color: #609fbd;
+  border-radius: 1em;
+  /* transition: 0.3s ease; */
+}
+.menu li {
+  padding: 5px 14px;
+}
+
+/*RESPONSIVE NAVBAR MENU STARTS*/
+/* CHECKBOX HACK */
+input[type="checkbox"] {
+  display: none;
+}
+/*HAMBURGER MENU*/
+.hamburger {
+  display: none;
+  font-size: 24px;
+  user-select: none;
+}
+/* APPLYING MEDIA QUERIES */
+@media (max-width: 800px) {
+  .menu {
+    display: none;
+    position: absolute;
+    background-color: rgb(185, 185, 185);
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+  }
+  .menu li:hover {
+    display: inline-block;
+    background-color: #609fbd;
+  }
+  .menu li + li {
+    margin-top: 12px;
+  }
+  input[type="checkbox"]:checked ~ .menu {
+    display: block;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+/*HERO MESSAGE STARTS*/
+.hero .message {
+  width: 100%;
+  height: 30%;
+  background-color: #609fbd;
+  padding: 10vh;
+  text-align: center;
+}
+
+/*CONTENT STARTS*/
+.content {
+  text-align: center;
+}
+
+.content .title {
+  padding: 3.5vh;
+}
+
+.content .box-row {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.content .box-row .box {
+  width: 50%;
+  height: 100%;
+  margin: 1%;
+  padding-bottom: 10%;
+  background-color: #46748a;
+}
+
+.content .action {
+  width: 10em;
+  margin: auto;
+  padding: 1em;
+  background-color: #609fbd;
+  text-align: center;
+}
+
+/*RESPONSIVE BOX ROW STARTS*/
+@media (max-width: 1200px) {
+  .content .box-row {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .content .box-row {
+    width: 100%;
+    flex-direction: column;
+  }
+  .content .box-row .box {
+    width: 90%;
+    margin: 2%;
+  }
+}
