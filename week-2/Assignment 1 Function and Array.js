@@ -1,4 +1,4 @@
-function Max(arr) {
+function max(arr) {
 	let len = arr.length, max = -Infinity;
   for(let i = 0 ;i < len ;i++){
   	if (arr[i] > max) {
