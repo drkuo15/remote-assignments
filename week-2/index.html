@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 2: RWD Page Layout in pure HTML/CSS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  
+  <body>
+    <section class="header">
+      <!-- REF : https://www.makeuseof.com/responsive-navigation-bar-using-html-and-css/ -->
+      <nav class="navbar">
+        <!-- LOGO -->
+        <div class="logo">Website Title/Logo</div>
+        <!-- NAVIGATION MENU -->
+        <ul class="nav-links">
+          <!-- USING CHECKBOX HACK -->
+          <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+          <!-- NAVIGATION MENUS -->
+          <div class="menu">
+            <li class="flex">
+              <a href="#">Item 1</a>
+              <label for="checkbox_toggle" class="hamburger hamburger_close">X</label>
+            </li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+            <li><a href="#">Item 4</a></li>
+          </div>
+        </ul>
+      </nav>
+    </section>
+
+    <section class="hero">
+      <div class="message">
+        <h1>Welcome Message</h1>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="title">
+        <h2>Section Title</h2>
+      </div>
+      <div class="box-row">
+        <div class="box">
+          <p>Content Box 1</p>
+        </div>
+        <div class="box">
+          <p>Content Box 2</p>
+        </div>
+      </div>
+      <div class="box-row">
+        <div class="box">
+          <p>Content Box 3</p>
+        </div>
+        <div class="box">
+          <p>Content Box 4</p>
+        </div>
+      </div>
+      <div class="action">
+        <p>Call to Action</p>
+      </div>
+    </section>
+
+    <section class="content hidden-content">
+      <div class="box-row">
+        <div class="box">
+          <p>Content Box 1</p>
+        </div>
+        <div class="box">
+          <p>Content Box 2</p>
+        </div>
+      </div>
+      <div class="box-row">
+        <div class="box">
+          <p>Content Box 3</p>
+        </div>
+        <div class="box">
+          <p>Content Box 4</p>
+        </div>
+      </div>
+    </section>
+  </body>
+
+  <script src = "script.js"></script>
+
+</html>
