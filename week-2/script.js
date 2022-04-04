@@ -16,10 +16,10 @@ close.addEventListener ('click', () => {
 const hidden = document.querySelector('.action');
 const content = document.querySelector('.hidden-content');
 hidden.addEventListener ('click', () => {
-    if (content.style.display === "none" || content.style.display == false){
-        content.style.display = "block";
-    } else {
-        content.style.display = "none";
-    }
+       if (content.style.display === "block" ){
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
 })
 
