@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 3: Connect to Backend API by AJAX</title>
+  </head>
+  <body>
+    <h1>Hello! You can enter a number and get a result from the server.</h1>
+    <label for="number">Please enter a number (between 1 and 100) :</label>
+    <input type="number" id="number" name="number" min="1" max="100" />
+    <button id="button">Submit</button>
+    <div class="result"></div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script>
+      $("#button").on("click",()=> {
+        let value = $("#number").val();
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                $(".result").append(`<h2>Your result is 『 ${xhr.responseText} 』</h2>`)
+            }
+        }
+        xhr.open('GET', `http://localhost:3000/getData?number=${value}`);
+        xhr.send();
+
+        // AJAX Method 2
+        // $.ajax({
+        //     type:"GET",
+        //     dataType:"json",
+        //     url: `http://localhost:3000/getData?number=${value}`,
+        //     success: function (data) {
+        //         $(".result").append(`<h2>Your result is 『 ${data} 』</h2>`)
+        //     }
+        // })
+      })
+  </script>
+</html>
