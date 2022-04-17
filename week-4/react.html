@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Assignment 3: Re-Implement Layout by React</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <link rel="stylesheet" href="style.css" />
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      // week 1 - html
+      function MyApp() {
+        return (
+          <div>
+            <ToggleMenu />
+            <ChangeText />
+            <HiddenBox />
+          </div>
+        );
+      }
+
+      // week 2 - assignment 4 (JS)
+
+      class ChangeText extends React.Component {
+        state = {
+          message: "Welcome Message",
+        };
+
+        changeText = () => {
+          this.setState({ message: "Have a Good Time!" });
+        };
+
+        render() {
+          return (
+            <div>
+              <section className="hero">
+                <div className="message" onClick={this.changeText}>
+                  <h1 id="hero-message">{this.state.message}</h1>
+                </div>
+              </section>
+            </div>
+          );
+        }
+      }
+
+      class ToggleMenu extends React.Component {
+        state = {
+          className: "menu",
+          active: true,
+        };
+
+        toggleMenu = () => {
+          console.log("OK");
+          if (this.state.active) {
+            this.setState((prevState) => ({
+              className: "menu menu_show",
+              active: !prevState.active,
+            }));
+          } else {
+            this.setState((prevState) => ({
+              className: "menu",
+              active: !prevState.active,
+            }));
+          }
+        };
+
+        render() {
+          return (
+            <div>
+              <section className="header">
+                {/* REF : https://www.makeuseof.com/responsive-navigation-bar-using-html-and-css/ */}
+                <nav className="navbar">
+                  {/* LOGO */}
+                  <div className="logo">Website Title/Logo</div>
+                  {/* NAVIGATION MENU */}
+                  <ul className="nav-links">
+                    {/* USING CHECKBOX HACK */}
+                    {/* <input type="checkbox" id="checkbox_toggle" /> */}
+                    <label
+                      htmlFor="toggle"
+                      className="hamburger"
+                      onClick={this.toggleMenu}
+                    >
+                      ☰
+                    </label>
+                    {/* NAVIGATION MENUS */}
+                    <div className={this.state.className} id="menu">
+                      <li id="firstLiOfMenu">
+                        <a href="/">Item 1</a>
+                        <label
+                          htmlFor="toggle"
+                          className="hamburger"
+                          onClick={this.toggleMenu}
+                        >
+                          ☰
+                        </label>
+                      </li>
+                      <li>
+                        <a href="/">Item 2</a>
+                      </li>
+                      <li>
+                        <a href="/">Item 3</a>
+                      </li>
+                      <li>
+                        <a href="/">Item 4</a>
+                      </li>
+                    </div>
+                  </ul>
+                </nav>
+              </section>
+            </div>
+          );
+        }
+      }
+
+      class HiddenBox extends React.Component {
+        state = {
+          hidden: "hidden",
+        };
+
+        changeToShow = () => {
+          this.setState({ hidden: "box-row" });
+        };
+
+        render() {
+          return (
+            <div>
+              <section className="content">
+                <div className="title">
+                  <h2>Section Title</h2>
+                </div>
+                <div className="box-row">
+                  <div className="box">
+                    <p>Content Box 1</p>
+                  </div>
+                  <div className="box">
+                    <p>Content Box 2</p>
+                  </div>
+                </div>
+                <div className="box-row">
+                  <div className="box">
+                    <p>Content Box 3</p>
+                  </div>
+                  <div className="box">
+                    <p>Content Box 4</p>
+                  </div>
+                </div>
+                <div className="action" onClick={this.changeToShow}>
+                  <p>Call to Action</p>
+                </div>
+                <div className={this.state.hidden}>
+                  <div className="box">
+                    <p>Content Box 5</p>
+                  </div>
+                  <div className="box">
+                    <p>Content Box 6</p>
+                  </div>
+                </div>
+                <div className={this.state.hidden}>
+                  <div className="box">
+                    <p>Content Box 7</p>
+                  </div>
+                  <div className="box">
+                    <p>Content Box 8</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+          );
+        }
+      }
+
+      const container = document.getElementById("root");
+      const root = ReactDOM.createRoot(container);
+      root.render(<MyApp />);
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this section for a production-ready setup with JSX:
+      https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+
+      In a larger project, you can use an integrated toolchain that includes JSX instead:
+      https://reactjs.org/docs/create-a-new-react-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      https://reactjs.org/docs/react-without-jsx.html
+    -->
+  </body>
+</html>
